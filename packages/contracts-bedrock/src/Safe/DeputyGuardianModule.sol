@@ -18,7 +18,7 @@ import "src/libraries/DisputeTypes.sol";
 ///         authorization at any time by disabling this module.
 contract DeputyGuardianModule is ISemver {
     /// @notice Error message for unauthorized access
-    error OnlyDeputyGuardian();
+    error BadAuth(string expectedRole);
 
     /// @notice Error message for failed transaction execution
     error TransactionExecutionFailed(string);
@@ -75,7 +75,7 @@ contract DeputyGuardianModule is ISemver {
 
     function _onlyDeputyGuardian() internal view {
         if (msg.sender != DEPUTY_GUARDIAN) {
-            revert OnlyDeputyGuardian();
+            revert BadAuth("Deputy Guardian");
         }
     }
 

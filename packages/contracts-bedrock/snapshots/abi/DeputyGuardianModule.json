@@ -168,8 +168,14 @@
     "type": "event"
   },
   {
-    "inputs": [],
-    "name": "OnlyDeputyGuardian",
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "expectedRole",
+        "type": "string"
+      }
+    ],
+    "name": "BadAuth",
     "type": "error"
   },
   {
