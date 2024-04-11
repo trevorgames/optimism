@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-# This script is used to generate the getting-started.json configuration file
-# used in the Getting Started quickstart guide on the docs site. Avoids the
-# need to have the getting-started.json committed to the repo since it's an
+# This script is used to generate the trevor-sepolia.json configuration file
+# used in the "Spin up your own Trevor devnet" guide on the docs site. Avoids
+# theneed to have the trevor-sepolia.json committed to the repo since it's an
 # invalid JSON file when not filled in, which is annoying.
 
 reqenv() {
@@ -13,10 +13,10 @@ reqenv() {
 }
 
 # Check required environment variables
-reqenv "GS_ADMIN_ADDRESS"
-reqenv "GS_BATCHER_ADDRESS"
-reqenv "GS_PROPOSER_ADDRESS"
-reqenv "GS_SEQUENCER_ADDRESS"
+reqenv "TRV_ADMIN_ADDRESS"
+reqenv "TRV_BATCHER_ADDRESS"
+reqenv "TRV_PROPOSER_ADDRESS"
+reqenv "TRV_SEQUENCER_ADDRESS"
 reqenv "L1_RPC_URL"
 
 # Get the finalized block timestamp and hash
@@ -30,33 +30,33 @@ config=$(cat << EOL
   "l1StartingBlockTag": "$blockhash",
 
   "l1ChainID": 11155111,
-  "l2ChainID": 42069,
-  "l2BlockTime": 2,
+  "l2ChainID": 689388,
+  "l2BlockTime": 6,
   "l1BlockTime": 12,
 
   "maxSequencerDrift": 600,
   "sequencerWindowSize": 3600,
   "channelTimeout": 300,
 
-  "p2pSequencerAddress": "$GS_SEQUENCER_ADDRESS",
-  "batchInboxAddress": "0xff00000000000000000000000000000000042069",
-  "batchSenderAddress": "$GS_BATCHER_ADDRESS",
+  "p2pSequencerAddress": "$TRV_SEQUENCER_ADDRESS",
+  "batchInboxAddress": "0xff00000000000000000000000000000000689388",
+  "batchSenderAddress": "$TRV_BATCHER_ADDRESS",
 
-  "l2OutputOracleSubmissionInterval": 120,
+  "l2OutputOracleSubmissionInterval": 40,
   "l2OutputOracleStartingBlockNumber": 0,
   "l2OutputOracleStartingTimestamp": $timestamp,
 
-  "l2OutputOracleProposer": "$GS_PROPOSER_ADDRESS",
-  "l2OutputOracleChallenger": "$GS_ADMIN_ADDRESS",
+  "l2OutputOracleProposer": "$TRV_PROPOSER_ADDRESS",
+  "l2OutputOracleChallenger": "$TRV_ADMIN_ADDRESS",
 
   "finalizationPeriodSeconds": 12,
 
-  "proxyAdminOwner": "$GS_ADMIN_ADDRESS",
-  "baseFeeVaultRecipient": "$GS_ADMIN_ADDRESS",
-  "l1FeeVaultRecipient": "$GS_ADMIN_ADDRESS",
-  "sequencerFeeVaultRecipient": "$GS_ADMIN_ADDRESS",
-  "finalSystemOwner": "$GS_ADMIN_ADDRESS",
-  "superchainConfigGuardian": "$GS_ADMIN_ADDRESS",
+  "proxyAdminOwner": "$TRV_ADMIN_ADDRESS",
+  "baseFeeVaultRecipient": "$TRV_ADMIN_ADDRESS",
+  "l1FeeVaultRecipient": "$TRV_ADMIN_ADDRESS",
+  "sequencerFeeVaultRecipient": "$TRV_ADMIN_ADDRESS",
+  "finalSystemOwner": "$TRV_ADMIN_ADDRESS",
+  "superchainConfigGuardian": "$TRV_ADMIN_ADDRESS",
 
   "baseFeeVaultMinimumWithdrawalAmount": "0x8ac7230489e80000",
   "l1FeeVaultMinimumWithdrawalAmount": "0x8ac7230489e80000",
@@ -69,9 +69,9 @@ config=$(cat << EOL
   "gasPriceOracleScalar": 1000000,
 
   "enableGovernance": true,
-  "governanceTokenSymbol": "OP",
-  "governanceTokenName": "Optimism",
-  "governanceTokenOwner": "$GS_ADMIN_ADDRESS",
+  "governanceTokenSymbol": "TRV",
+  "governanceTokenName": "Trevor",
+  "governanceTokenOwner": "$TRV_ADMIN_ADDRESS",
 
   "l2GenesisBlockGasLimit": "0x1c9c380",
   "l2GenesisBlockBaseFeePerGas": "0x3b9aca00",
@@ -101,4 +101,4 @@ EOL
 )
 
 # Write the config file
-echo "$config" > deploy-config/getting-started.json
+echo "$config" > deploy-config/trevor-seplia.json

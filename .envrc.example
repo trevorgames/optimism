@@ -3,20 +3,20 @@
 ##################################################
 
 # Admin account
-export GS_ADMIN_ADDRESS=
-export GS_ADMIN_PRIVATE_KEY=
+export TRV_ADMIN_ADDRESS=
+export TRV_ADMIN_PRIVATE_KEY=
 
 # Batcher account
-export GS_BATCHER_ADDRESS=
-export GS_BATCHER_PRIVATE_KEY=
+export TRV_BATCHER_ADDRESS=
+export TRV_BATCHER_PRIVATE_KEY=
 
 # Proposer account
-export GS_PROPOSER_ADDRESS=
-export GS_PROPOSER_PRIVATE_KEY=
+export TRV_PROPOSER_ADDRESS=
+export TRV_PROPOSER_PRIVATE_KEY=
 
 # Sequencer account
-export GS_SEQUENCER_ADDRESS=
-export GS_SEQUENCER_PRIVATE_KEY=
+export TRV_SEQUENCER_ADDRESS=
+export TRV_SEQUENCER_PRIVATE_KEY=
 
 ##################################################
 #              op-node Configuration             #

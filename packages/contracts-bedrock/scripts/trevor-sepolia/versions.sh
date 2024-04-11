@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-# This script prints out the versions of the various tools used in the Getting
-# Started quickstart guide on the docs site. Simplifies things for users so
+# This script prints out the versions of the various tools used in the "Spin up
+# your own Trevor devnet" guide on the docs site. Simplifies things for users so
 # they can easily see if they're using the right versions of everything.
 
 version() {

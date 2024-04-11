@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-# This script is used to generate the four wallets that are used in the Getting
-# Started quickstart guide on the docs site. Simplifies things for users
+# This script is used to generate the four wallets that are used in the "Spin up
+# your own Trevor devnet" guide on the docs site. Simplifies things for users
 # slightly while also avoiding the need for users to manually copy/paste a
 # bunch of stuff over to the environment file.
 
@@ -27,17 +27,17 @@ key4=$(echo "$wallet4" | awk '/Private key/ { print $3 }')
 echo "Copy the following into your .envrc file:"
 echo
 echo "# Admin account"
-echo "export GS_ADMIN_ADDRESS=$address1"
-echo "export GS_ADMIN_PRIVATE_KEY=$key1"
+echo "export TRV_ADMIN_ADDRESS=$address1"
+echo "export TRV_ADMIN_PRIVATE_KEY=$key1"
 echo
 echo "# Batcher account"
-echo "export GS_BATCHER_ADDRESS=$address2"
-echo "export GS_BATCHER_PRIVATE_KEY=$key2"
+echo "export TRV_BATCHER_ADDRESS=$address2"
+echo "export TRV_BATCHER_PRIVATE_KEY=$key2"
 echo
 echo "# Proposer account"
-echo "export GS_PROPOSER_ADDRESS=$address3"
-echo "export GS_PROPOSER_PRIVATE_KEY=$key3"
+echo "export TRV_PROPOSER_ADDRESS=$address3"
+echo "export TRV_PROPOSER_PRIVATE_KEY=$key3"
 echo
 echo "# Sequencer account"
-echo "export GS_SEQUENCER_ADDRESS=$address4"
-echo "export GS_SEQUENCER_PRIVATE_KEY=$key4"
+echo "export TRV_SEQUENCER_ADDRESS=$address4"
+echo "export TRV_SEQUENCER_PRIVATE_KEY=$key4"
